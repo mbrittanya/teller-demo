@@ -1,11 +1,39 @@
 var app = angular.module('app', []);
 
 app.controller('myCtrl', ['$scope', function($scope){
-	$scope.filterBy = ''
+	$scope.filterBy = '';
 
-	$scope.setFilter = function(){
-		//set the $scope.filterBy according to what was clicked.
-	}
+	$scope.setFilter = function(item){
+		switch(item){
+			case "title":
+				if($scope.filterBy === "title"){
+					$scope.filterBy =  "-title";
+				}else if($scope.filterBy === "-title"){
+					$scope.filterBy = '';
+				}else{
+    			$scope.filterBy = item;
+    			}
+    			break;
+			case "cost":
+    			if($scope.filterBy === "cost"){
+					$scope.filterBy =  "-cost";
+				}else if($scope.filterBy === "-cost"){
+					$scope.filterBy = '';
+				}else{
+    			$scope.filterBy = item;
+    			}
+    			break;
+			case "notes":
+    			if($scope.filterBy === "notes"){
+					$scope.filterBy =  "-notes";
+				}else if($scope.filterBy === "-notes"){
+					$scope.filterBy = '';
+				}else{
+    			$scope.filterBy = item;
+    			}
+    			break;
+		}
+	};
 
 	$scope.transactions = [
 		{

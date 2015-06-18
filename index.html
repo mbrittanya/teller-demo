@@ -11,19 +11,16 @@
 		<section>
 			<table class="table">
 				<tr>
-			    <th>Transaction</th>
-			    <th>Cost</th>
-			    <th>Notes</th>
+			    <th> <a ng-click="setFilter('title')">Transaction </a></th>
+			    <th> <a ng-click="setFilter('cost')">Cost</a></th>
+			    <th> <a ng-click="setFilter('notes')">Notes</a></th>
 			  </tr>
 			  <tr ng-repeat="transaction in transactions | orderBy: filterBy">
 			    <td>{{ transaction.title }}</td>
-			    <td>{{ transaction.cost }}</td>
+			    <td>{{ transaction.cost | currency }}</td>
 			    <td>{{ transaction.notes }}</td>
 			  </tr>
 			</table>
-		</section>
-		<section>
-			<pre>{{ transactions }}</pre>
 		</section>
 	</div>
 	<script src="app.js"></script>
